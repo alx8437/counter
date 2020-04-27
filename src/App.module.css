@@ -1,0 +1,20 @@
+.app {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 160px;
+    width: 320px;
+    background-color: #92b11c;
+    font-size: 75px;
+}
+
