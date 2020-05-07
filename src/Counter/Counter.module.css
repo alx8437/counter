@@ -1,0 +1,31 @@
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 160px;
+    width: 320px;
+    background-color: #92b11c;
+    font-size: 75px;
+}
+
+.stop {
+    color: red
+}
+
+.wrapper {
+    background-color: green;
+}
+
+.wrapperForButton{
+    display: flex;
+    width: 320px;
+    height: 100px;
+    justify-content: space-around;
+    background-color: coral;
+}
+
+.wrapperForButton button {
+    margin-top: 20px;
+    width: 100px;
+    height: 60px;
+}

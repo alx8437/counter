@@ -1,44 +1,53 @@
 import React from 'react';
 import styles from './App.module.css';
 import Counter from "./Counter/Counter";
-import Buttons from "./Buttons/Buttons";
+import Settings from "./Settings/Settings";
 
 
 class App extends React.Component {
 
     state = {
-
-        counter: 0,
-
+        minValue: 0,
+        maxValue: 5,
         filterValue: '',
-
-        disabled: true
+        disabled: true,
+        buttonsName: [
+            {id: 0, name: "inc"},
+            {id: 1, name: "reset"},
+            {id: 2, name: "set"}
+        ]
 
     }
 
+
+
     onRunCounter = () => {
-        if (this.state.counter < 5) {
-            let counting = this.state.counter + 1;
-            if (counting === 5) {
+        if (this.state.minValue < this.state.maxValue) {
+            let counting = this.state.minValue + 1;
+            if (counting === this.state.maxValue) {
                 this.setState({
-                    counter: counting,
+                    minValue: counting,
                     filterValue: 'stop'
                 })
             } else {
                 this.setState({
-                    counter: counting,
+                    minValue: counting,
                 })
             }
         }
     }
 
-
     onResetCounter = () => {
         this.setState({
-            counter: 0,
+            minValue: 0,
             filterValue: ''
+        })
+    }
 
-
+    onNewValueConter = (min, max) => {
+        this.setState({
+            minValue: min,
+            maxValue: max
         })
     }
 
@@ -47,14 +56,16 @@ class App extends React.Component {
         return (
             <div className={styles.app}>
                 <Counter
-                    counter={this.state.counter}
+                    minValue={this.state.minValue}
+                    maxValue={this.state.maxValue}
                     changeFilter={this.changeFilter}
                     filterValue={this.state.filterValue}
-                />
-                <Buttons
                     onRunCounter={this.onRunCounter}
                     onResetCounter={this.onResetCounter}
-                    counter={this.state.counter}
+                />
+                <Settings
+                    buttonsName={this.state.buttonsName}
+                    onNewValueConter={this.onNewValueConter}
                 />
             </div>
         )

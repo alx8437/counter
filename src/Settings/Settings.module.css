@@ -1,0 +1,32 @@
+.settings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 160px;
+    width: 320px;
+    background-color: #92b11c;
+}
+
+.stop {
+    color: red
+}
+
+.wrapper {
+    margin-left: 50px;
+}
+
+.wrapperForButton{
+    display: flex;
+    width: 320px;
+    height: 100px;
+    background-color: coral;
+    justify-content: center;
+}
+
+.wrapperForButton button {
+    margin-top: 20px;
+    width: 100px;
+    height: 60px;
+}
+
