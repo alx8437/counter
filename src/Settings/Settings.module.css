@@ -30,3 +30,12 @@
     height: 60px;
 }
 
+.input {
+    border-radius: 2px;
+}
+
+.inputError {
+    border-radius: 2px;
+    background-color: #ff7777;
+}
+
