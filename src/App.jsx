@@ -51,6 +51,17 @@ class App extends React.Component {
         })
     }
 
+    updateMinValueCounter = (newValue) => {
+        this.setState({
+            minValue: newValue
+        })
+    }
+
+    updateMaxValueCounter = (newValue) => {
+        this.setState({
+            maxValue: newValue
+        })
+    }
 
     render(){
         return (
@@ -66,6 +77,10 @@ class App extends React.Component {
                 <Settings
                     buttonsName={this.state.buttonsName}
                     onNewValueConter={this.onNewValueConter}
+                    minValue={this.state.minValue}
+                    maxValue={this.state.maxValue}
+                    updateMinValueCounter={this.updateMinValueCounter}
+                    updateMaxValueCounter={this.updateMaxValueCounter}
                 />
             </div>
         )

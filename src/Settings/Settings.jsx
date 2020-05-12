@@ -5,31 +5,54 @@ import styles from './Settings.module.css';
 class Settings extends React.Component {
 
     state = {
+        minValue: 0,
         maxValue: 0,
         startValue: 0,
-        error: false
+        error: false,
+        buttonDisabled: true
     }
 
     newMaxValueInput = (e) => {
-        this.setState({maxValue: e.currentTarget.value})
+        let newMaxValue = e.currentTarget.value;
+        this.setState({
+            maxValue: newMaxValue,
+            buttonDisabled: false
+        })
     }
 
     newMinValueInput = (e) => {
-        this.setState({startValue: e.currentTarget.value})
+        let newMinValue = e.currentTarget.value;
+        this.setState({
+            minValue: newMinValue,
+            buttonDisabled: false
+        });
+        let min = this.state.minValue;
+        let max = this.state.maxValue;
+        if ((min > max) || (min < 0) || (max < 0) || (min === max)) {
+            this.setState({
+                error: true,
+            });
+            this.props.onNewValueConter("Error!", max)
+        }
+
+
     }
 
-    onNewValueConter = () => {
-        let min = Number(this.state.startValue);
+    onNewValueCounter = () => {
+        let min = Number(this.state.minValue);
         let max = Number(this.state.maxValue);
         if ((min > max) || (min < 0) || (max < 0) || (min === max)) {
             this.setState({
-                error: true
-            })
+                error: true,
+            });
+            this.props.onNewValueConter("Error!", max)
+        } else {
+            this.setState({
+                error: false,
+            });
+            this.props.onNewValueConter(min, max)
         }
-        this.props.onNewValueConter(min, max)
     }
-
-
 
 
     render = () => {
@@ -42,19 +65,19 @@ class Settings extends React.Component {
                 <div className={styles.settings}>
                     <span>start value</span>
                     <input className={classToError}
-                        value={this.state.startValue}
-                        type="number"
-                        onChange={this.newMinValueInput}
+                           value={this.state.minValue}
+                           type="number"
+                           onChange={this.newMinValueInput}
                     />
                     <span>max value</span>
                     <input className={classToError}
-                        value={this.state.maxValue}
-                        onChange={this.newMaxValueInput}
-                        type="number"
+                           value={this.state.maxValue}
+                           onChange={this.newMaxValueInput}
+                           type="number"
                     />
                 </div>
                 <div className={styles.wrapperForButton}>
-                    <button onClick={this.onNewValueConter}>set</button>
+                    <button disabled={this.state.buttonDisabled} onClick={this.onNewValueCounter}>set</button>
                 </div>
 
 
