@@ -5,7 +5,7 @@
     height: 160px;
     width: 320px;
     background-color: #92b11c;
-    font-size: 75px;
+    font-weight: bold;
 }
 
 .stop {
@@ -13,7 +13,9 @@
 }
 
 .wrapper {
-    background-color: green;
+    background-color: #0b0b0b;
+    border-radius: 100px;
+
 }
 
 .wrapperForButton{

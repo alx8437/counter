@@ -36,6 +36,7 @@
 
 .inputError {
     border-radius: 2px;
-    background-color: #ff7777;
+    border-color: red;
+    background-color: #f5c3c3;
 }
 
