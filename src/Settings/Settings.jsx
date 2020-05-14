@@ -11,6 +11,8 @@ class Settings extends React.Component {
         buttonDisabled: true
     }
 
+
+
     onNewValueCounter = () => {
         let min = Number(this.state.minValue);
         let max = Number(this.state.maxValue);
@@ -18,12 +20,14 @@ class Settings extends React.Component {
             this.setState({
                 error: true,
             });
-            this.props.onNewValueConter("Error!", max)
+            this.props.onSendValueCounter("Error!", max)
+            // this.props.onNewValueConter(, max)
         } else {
             this.setState({
                 error: false
             });
-            this.props.onNewValueConter('Enter values and press "set"', max)
+            this.props.onSendValueCounter('Enter values and press "set"', max)
+            // this.props.onNewValueConter('Enter values and press "set"', max)
         }
     }
 
@@ -46,8 +50,11 @@ class Settings extends React.Component {
 
     }
 
-
-
+    onSendValueCounter = () => {
+        let min = this.state.minValue;
+        let max = this.state.maxValue;
+        this.props.onSendValueCounter(min, max)
+    }
 
 
 
@@ -73,7 +80,7 @@ class Settings extends React.Component {
                     />
                 </div>
                 <div className={styles.wrapperForButton}>
-                    <button disabled={this.state.buttonDisabled} onClick={this.onNewValueCounter}>set</button>
+                    <button disabled={this.state.buttonDisabled} onClick={this.onSendValueCounter}>set</button>
                 </div>
 
 

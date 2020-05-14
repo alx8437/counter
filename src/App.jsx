@@ -7,6 +7,7 @@ import Settings from "./Settings/Settings";
 class App extends React.Component {
 
     state = {
+        startValue: '',
         minValue: 0,
         maxValue: 5,
         filterValue: '',
@@ -18,7 +19,6 @@ class App extends React.Component {
         ]
 
     }
-
 
 
     onRunCounter = () => {
@@ -37,48 +37,37 @@ class App extends React.Component {
         }
     }
 
-    onResetCounter = () => {
+    onSendValueCounter = (min, max) => {
         this.setState({
-            minValue: 0,
+            startValue: min,
+            minValue: min,
+            maxValue: max,
             filterValue: ''
         })
     }
 
-    onNewValueConter = (min, max) => {
+    onResetValue = () => {
         this.setState({
-            minValue: min,
-            maxValue: max
+            minValue: this.state.startValue,
+            filterValue: ''
         })
     }
 
-    updateMinValueCounter = (newValue) => {
-        this.setState({
-            minValue: newValue
-        })
-    }
 
-    updateMaxValueCounter = (newValue) => {
-        this.setState({
-            maxValue: newValue
-        })
-    }
 
-    render(){
+    render() {
         return (
             <div className={styles.app}>
                 <Counter
                     minValue={this.state.minValue}
                     maxValue={this.state.maxValue}
-                    changeFilter={this.changeFilter}
+                    // changeFilter={this.changeFilter}
                     filterValue={this.state.filterValue}
                     onRunCounter={this.onRunCounter}
-                    onResetCounter={this.onResetCounter}
+                    onResetValue={this.onResetValue}
                 />
                 <Settings
-                    buttonsName={this.state.buttonsName}
-                    onNewValueConter={this.onNewValueConter}
-                    minValue={this.state.minValue}
-                    maxValue={this.state.maxValue}
+                    onSendValueCounter={this.onSendValueCounter}
                     updateMinValueCounter={this.updateMinValueCounter}
                     updateMaxValueCounter={this.updateMaxValueCounter}
                 />

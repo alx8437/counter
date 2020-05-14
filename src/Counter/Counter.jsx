@@ -17,7 +17,7 @@ class Counter extends React.Component {
                 </div>
                 <div className={styles.wrapperForButton}>
                     <button disabled={disabledInc} onClick={()=>this.props.onRunCounter()}>inc</button>
-                    <button onClick={()=>this.props.onResetCounter()}>reset</button>
+                    <button onClick={()=>this.props.onResetValue()}>reset</button>
                 </div>
 
             </div>
