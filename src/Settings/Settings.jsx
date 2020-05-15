@@ -19,12 +19,14 @@ class Settings extends React.Component {
         if ((min > max) || (min < 0) || (max < 0) || (min === max)) {
             this.setState({
                 error: true,
+                buttonDisabled: true
             });
             this.props.onSendValueCounter("Error!", max)
             // this.props.onNewValueConter(, max)
         } else {
             this.setState({
-                error: false
+                error: false,
+                buttonDisabled: false
             });
             this.props.onSendValueCounter('Enter values and press "set"', max)
             // this.props.onNewValueConter('Enter values and press "set"', max)
