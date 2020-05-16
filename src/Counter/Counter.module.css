@@ -9,12 +9,19 @@
 }
 
 .stop {
-    color: red
+    color: red;
+    font-size: 68px;
+
+}
+
+.defaultSpan {
+    padding: 10px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .wrapper {
-    background-color: #0b0b0b;
-    border-radius: 100px;
+
 
 }
 

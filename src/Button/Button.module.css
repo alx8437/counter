@@ -1,0 +1,18 @@
+button{
+    background-color: #92b11c;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+button:active {
+    background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+    outline: none;
+    border: none;
+}
+

@@ -7,7 +7,7 @@ import Settings from "./Settings/Settings";
 class App extends React.Component {
 
     state = {
-        startValue: '',
+        startValue: 0,
         minValue: 0,
         maxValue: 5,
         filterValue: '',
@@ -18,7 +18,7 @@ class App extends React.Component {
             {id: 2, name: "set"}
         ]
 
-    }
+    };
 
 
     onRunCounter = () => {
@@ -35,7 +35,7 @@ class App extends React.Component {
                 })
             }
         }
-    }
+    };
 
     onSendValueCounter = (min, max) => {
         this.setState({
@@ -44,15 +44,14 @@ class App extends React.Component {
             maxValue: max,
             filterValue: ''
         })
-    }
+    };
 
     onResetValue = () => {
         this.setState({
             minValue: this.state.startValue,
             filterValue: ''
         })
-    }
-
+    };
 
 
     render() {

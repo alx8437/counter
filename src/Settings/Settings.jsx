@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Settings.module.css';
+import Button from "../Button/Button";
 
 
 class Settings extends React.Component {
@@ -9,7 +10,7 @@ class Settings extends React.Component {
         maxValue: 0,
         error: false,
         buttonDisabled: true
-    }
+    };
 
 
 
@@ -31,7 +32,7 @@ class Settings extends React.Component {
             this.props.onSendValueCounter('Enter values and press "set"', max)
             // this.props.onNewValueConter('Enter values and press "set"', max)
         }
-    }
+    };
 
     newMaxValueInput = (e) => {
         let newMaxValue = e.currentTarget.value;
@@ -40,7 +41,7 @@ class Settings extends React.Component {
             maxValue: isNumberValue,
             buttonDisabled: false
         }, () => this.onNewValueCounter())
-    }
+    };
 
     newMinValueInput = (e) => {
         let newMinValue = e.currentTarget.value;
@@ -50,7 +51,7 @@ class Settings extends React.Component {
             buttonDisabled: false
         }, () => this.onNewValueCounter())
 
-    }
+    };
 
     onSendValueCounter = () => {
         let min = this.state.minValue;
@@ -82,7 +83,8 @@ class Settings extends React.Component {
                     />
                 </div>
                 <div className={styles.wrapperForButton}>
-                    <button disabled={this.state.buttonDisabled} onClick={this.onSendValueCounter}>set</button>
+                    {/*<button disabled={this.state.buttonDisabled} onClick={this.onSendValueCounter}>set</button>*/}
+                    <Button name={'set'} func={this.onSendValueCounter} disabled={this.state.buttonDisabled}/>
                 </div>
 
 
